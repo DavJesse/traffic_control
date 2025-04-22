@@ -4,7 +4,7 @@ use rendering::{draw_roads, init};
 use std::time::Duration;
 
 fn main() {
-    let (sdl_context, mut canvas) = init::init("Traffic Simulator", 800, 600);
+    let (sdl_context, mut canvas) = init("Traffic Simulator", 800, 600);
     let mut event_pump = sdl_context.event_pump().unwrap();
 
     'running: loop {
