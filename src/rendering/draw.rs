@@ -29,6 +29,14 @@ pub fn draw_roads(canvas: &mut Canvas<Window>) {
     let horizontal_road = Rect::new(0, 250, 800, 100);
     canvas.fill_rect(horizontal_road).unwrap();
 
+    // Draw left lane separator
+    let left_lane_separator = Rect::new(0, 298, 350, 4);
+    canvas.fill_rect(left_lane_separator).unwrap();
+
+     // Draw bottom lane separator
+     let right_lane_separator = Rect::new(450, 298, 350, 4);
+     canvas.fill_rect(right_lane_separator).unwrap();
+
     // Present drawings to canvas
     canvas.present();
 }
