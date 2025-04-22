@@ -6,7 +6,7 @@ use sdl2::video::Window;
 pub fn draw_roads(canvas: &mut Canvas<Window>) {
     // Clear screen to black background
     canvas.set_draw_color(Color::RGB(0, 0, 0)); // Black background
-    canvas.clear();
+    canvas.clear();                             // Uses background color(black) to clear canvas
 
     // Set road color
     let road_color = Color::RGB(128, 128, 128); // Gray color for the road
@@ -15,6 +15,14 @@ pub fn draw_roads(canvas: &mut Canvas<Window>) {
     // Draw vertical road
     let vertical_road = Rect::new(350, 0, 100, 600);
     canvas.fill_rect(vertical_road).unwrap();
+
+    // Draw top lane separator
+    let top_lane_separator = Rect::new(398, 0, 4, 250);
+    canvas.fill_rect(top_lane_separator).unwrap();
+
+     // Draw bottom lane separator
+     let bottom_lane_separator = Rect::new(398, 350, 4, 250);
+     canvas.fill_rect(bottom_lane_separator).unwrap();
     
     
     // Draw horizontal road
