@@ -1,3 +1,5 @@
+pub mod draw;
+
 use sdl2::render::Canvas;
 use sdl2::video::Window;
 use sdl2::Sdl;
@@ -16,3 +18,5 @@ pub fn init(title: &str, width: u32, height: u32) -> (Sdl, Canvas<Window>) {
 
     (sdl_context, canvas)
 }
+
+pub use draw::*;
