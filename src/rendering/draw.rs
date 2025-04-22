@@ -4,19 +4,23 @@ use sdl2::render::Canvas;
 use sdl2::video::Window;
 
 pub fn draw_roads(canvas: &mut Canvas<Window>) {
-    let width = canvas.output_size().unwrap().0 as i32;
-    let height = canvas.output_size().unwrap().1 as i32;
-
-    canvas.set_draw_color(Color::RGB(30, 30, 30)); // road color
+    // Clear screen to black background
+    canvas.set_draw_color(Color::RGB(0, 0, 0)); // Black background
     canvas.clear();
 
-    let road_width = 100;
+    // Set road color
+    let road_color = Color::RGB(128, 128, 128); // Gray color for the road
+    canvas.set_draw_color(road_color);
 
     // Draw vertical road
-    canvas.fill_rect(Rect::new((width - road_width) / 2, 0, road_width as u32, height as u32)).unwrap();
-
+    let vertical_road = Rect::new(350, 0, 100, 600);
+    canvas.fill_rect(vertical_road).unwrap();
+    
+    
     // Draw horizontal road
-    canvas.fill_rect(Rect::new(0, (height - road_width) / 2, width as u32, road_width as u32)).unwrap();
+    let horizontal_road = Rect::new(0, 250, 800, 100);
+    canvas.fill_rect(horizontal_road).unwrap();
 
+    // Present drawings to canvas
     canvas.present();
 }
