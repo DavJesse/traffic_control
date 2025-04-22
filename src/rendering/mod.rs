@@ -1,5 +1,8 @@
 pub mod draw;    // Declare draw.rs as part of the 'rendering' module
-pub use draw::*; // Export all public items from draw.rs
+pub mod traffic; // Declare traffic.rs as part of the 'rendering' module
+
+pub use draw::*;    // Export all public items from draw.rs
+pub use traffic::*; // Export all public items from traffic.rs
 
 use sdl2::render::Canvas;
 use sdl2::video::Window;
