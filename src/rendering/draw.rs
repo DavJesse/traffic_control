@@ -24,7 +24,7 @@ pub fn draw_roads(canvas: &mut Canvas<Window>) {
     let lane_separator_color = Color::RGB(255, 255, 255);
     canvas.set_draw_color(lane_separator_color);
 
-    // Draw top lane separator
+    // Draw lane separator
     vertical_dotted_line(canvas, 20, 15, 398, 4, 0, 240);     // Draw top lane separator
     vertical_dotted_line(canvas, 20, 15, 398, 4, 350, 600);   // Draw bottom lane separator 
     horizontal_dotted_line(canvas, 4, 15, 20, 0, 350, 298);   // Draw left lane separator
