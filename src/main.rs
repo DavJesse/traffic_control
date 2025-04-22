@@ -1,6 +1,6 @@
 mod rendering;
 
-use rendering::{draw, init};
+use rendering::{draw_roads, init};
 use std::time::Duration;
 
 fn main() {
@@ -16,7 +16,7 @@ fn main() {
             }
         }
 
-        draw::draw_roads(&mut canvas);
+        draw_roads(&mut canvas);
         std::thread::sleep(Duration::from_millis(16)); // ~60 FPS
     }
 }
