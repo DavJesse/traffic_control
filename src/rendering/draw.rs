@@ -2,8 +2,10 @@ use sdl2::pixels::Color;
 use sdl2::rect::Rect;
 use sdl2::render::Canvas;
 use sdl2::video::Window;
+use crate::rendering::TrafficLightState;
+use crate::rendering::traffic::draw_traffic_light;
 
-pub fn draw_roads(canvas: &mut Canvas<Window>) {
+pub fn draw_roads(canvas: &mut Canvas<Window>, traffic_light_state: TrafficLightState) {
     // Clear screen to black background
     canvas.set_draw_color(Color::RGB(0, 0, 0)); // Black background
     canvas.clear();                             // Uses background color(black) to clear canvas
@@ -29,6 +31,12 @@ pub fn draw_roads(canvas: &mut Canvas<Window>) {
     vertical_dotted_line(canvas, 20, 15, 398, 4, 350, 600);   // Draw bottom lane separator 
     horizontal_dotted_line(canvas, 4, 15, 20, 0, 350, 298);   // Draw left lane separator
     horizontal_dotted_line(canvas, 4, 15, 20, 450, 800, 298); // Draw bottom lane separator
+
+    // Draw traffic lights
+    draw_traffic_light(canvas, 340, 325, 10, 10, traffic_light_state); // Left
+    draw_traffic_light(canvas, 450, 275, 10, 10, traffic_light_state); // Right
+    draw_traffic_light(canvas, 375, 240, 10, 10, traffic_light_state); // Top
+    draw_traffic_light(canvas, 425, 350, 10, 10, traffic_light_state); // Bottom
 
     // Present drawings to canvas
     canvas.present();
