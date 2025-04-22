@@ -38,6 +38,12 @@ pub fn draw_roads(canvas: &mut Canvas<Window>, traffic_light_state: TrafficLight
     draw_traffic_light(canvas, 375, 240, 10, 10, traffic_light_state); // Top
     draw_traffic_light(canvas, 425, 350, 10, 10, traffic_light_state); // Bottom
 
+    draw_vehicle(canvas, 760, 254, 40, 40, Color::RGB(0, 0, 255)); // blue car, far right
+    draw_vehicle(canvas, 0, 306, 40, 40, Color::RGB(255, 255, 0)); // yellow car, far left
+    draw_vehicle(canvas, 354, 0, 40, 40, Color::RGB(255, 105, 180)); // violet car, top
+    draw_vehicle(canvas, 406, 560, 40, 40, Color::RGB(0, 255, 255)); // green car, bottom
+
+
     // Present drawings to canvas
     canvas.present();
 }
@@ -56,4 +62,13 @@ fn horizontal_dotted_line(canvas: &mut Canvas<Window>, height:u32, gap:i32, dash
         canvas.fill_rect(dash).unwrap();
         x += dash_width as i32 + gap;
     }
+}
+
+pub fn draw_vehicle(
+    canvas: &mut Canvas<Window>, x: i32, y: i32,
+    width: u32, height: u32, color: Color,
+) {
+    canvas.set_draw_color(color);
+    let rect = Rect::new(x, y, width, height);
+    canvas.fill_rect(rect).unwrap();
 }
